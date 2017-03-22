@@ -1,9 +1,9 @@
 {
   "name": "kingbot",
-  "version": "0.1.0",
+  "version": "1.0",
   "description": "Bot that distorts images.",
   "engines": {
-    "node": "3.7.3"
+    "node": "5.9.1"
   },
   "main": "index.js",
   "scripts": {
