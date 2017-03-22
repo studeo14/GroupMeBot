@@ -43,12 +43,13 @@ function send_msg(text){
 app.post('/', jsonParser, function(request, response) {
 	//parse
 	var text = parse(request.body);
+	console.log("Got: ",text);
 	if(urls.hasOwnProperty(text))
 		text[0] = urls.err;
-	else
+	else{
 		text[0] = urls[text];
-
-	send_msg(text);
+		send_msg(text);
+	}
 	response.end();
 });
 
