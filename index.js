@@ -38,11 +38,11 @@ function upload(filename_,uri){
   	};
 
 	var retVal = '';
-	request.post({url:uri,formData:formData})
-	.on('response', function(r){
-		console.log(response, response.statusCode);
-	})
-	;
+	request.post({url:uri,formData:formData},
+		function(err,res,body){
+			console.log(res.headers['content-encoding']);
+		}
+	);
 }
 
 app.post('/', jsonParser, function(request, response) {
