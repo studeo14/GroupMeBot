@@ -44,7 +44,7 @@ app.post('/', jsonParser, function(request, response) {
 	//parse
 	var text = parse(request.body);
 	console.log("Got: ",text);
-	if(!urls.hasOwnProperty(text)){
+	if(!urls.hasOwnProperty(text[0])){
 		console.log("Bad Command");
 		text[0] = urls.err;
 		text[1] = "Bad Command";
