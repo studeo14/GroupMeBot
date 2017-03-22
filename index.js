@@ -24,15 +24,14 @@ function parse(body){
 function send_msg(text,url){
 	var fd = {
 		"bot_id": appId,
-		"text": text
-	};
-	if(url)
-		fd["attachments"]=[
+		"text": text,
+		"attachments":[
 			{
 				"type":"image",
 				"url":url
 			}
 		];
+	};
 	request.post({url:"https://api.groupme.com/v3/bots/post",form:fd});
 }
 
