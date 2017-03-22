@@ -1,9 +1,7 @@
 var express = require('express');
 var app = express();
 var bp = require('body-parser');
-var fs = require('fs');
 var request = require('request');
-var gm = require('gm');
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -12,55 +10,45 @@ var jsonParser = bp.json();
 var groupId = '29852246';
 var appId = '0deae2004936905f42d8f34baf';
 
-function parse(body){
-	console.log("Avater URL: ",body.avatar_url);
-	console.log("Access Token:  ",body);
-	return body.avatar_url;
-}
-
-function download(uri, filename, callback){
-  request.head(uri, function(err, res, body){
-    console.log('content-type:', res.headers['content-type']);
-    console.log('content-length:', res.headers['content-length']);
-
-    request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
-  });
+var urls = {
+	"/steve":"https://i.groupme.com/384x293.png.df1367a456ca4def9613e440433c09d2",
+	"/maks":"https://i.groupme.com/720x715.png.333b24832aee4eb597b81a6925423bfa",
+	"/mike":"https://i.groupme.com/800x591.png.bdd605d278dc400da2bae52c1dbe51f8",
+	"err":"http://s.quickmeme.com/img/a8/a8022006b463b5ed9be5a62f1bdbac43b4f3dbd5c6b3bb44707fe5f5e26635b0.jpg"
 };
 
-function upload(filename_,uri){
-  	var formData = {
-		"X-Access-Token": "9f4f5aa0f0f20134f3cc7b24b56edc21",
-		custom_file: {
-			value: fs.createReadStream(filename_),
-			options: {
-				filename: filename_,
-				contentType: 'image/png'
-			}
-		}
-  	};
+function parse(body){
+	return [body.text,body.name];
+}
 
-	var retVal = '';
-	request.post({url:uri,formData:formData},
-		function(e,r,b){
-			if(!e && r.statusCode == 200){
-				retVal = JSON.parse(b);
-				console.log('Reponse body: ', retVal);
+function send_msg(text){
+	var fd = {
+		"bot_id": appId,
+		"text": "@"+text[1],
+		"attachments": [
+			{
+				"type":"image",
+				"url:":text[0]
 			}
+		]
+	};
+	request.post("https://api.groupme.com/v3/bots/post",formData:fd,
+		function(e,r,b){
+			if(e)
+				console.log("Error posting: ",e);
 		}
-	)
-	;
+	);
 }
 
 app.post('/', jsonParser, function(request, response) {
 	//parse
-	var image_url = parse(request.body);
-	//download file
-	download(image_url,"group_pic.png",function(){console.log('download complete');});
-	//distort
-	gm("group_pic.png").swirl(20);
-	//upload and get url
-	upload("group_pic.png","https://image.groupme.com/pictures");
-	//post to group
+	var text = parse(request.body);
+	if(urls.hasOwnProperty(text))
+		text[0] = urls.err;
+	else
+		text[0] = urls[text];
+
+	send_msg(text);
 	response.end();
 });
 
