@@ -50,7 +50,7 @@ app.post('/', jsonParser, function(request, response) {
 			console.log("Good Command");
 			text = urls[text[0]];
 			console.log(text);
-			send_msg('',text);
+			send_msg('@'+request.body.name,text);
 		}
 	}
 	response.end();
