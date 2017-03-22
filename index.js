@@ -39,10 +39,15 @@ function upload(filename_,uri){
 
 	var retVal = '';
 	request.post({url:uri,formData:formData},
-		function(err,res,body){
-			console.log(res.headers['content-encoding']);
+		function(e,r,b){
+			if(e)
+				console.log("Error");
+			else{
+				console.log(r.toJSON);
+			}
 		}
-	);
+	)
+	;
 }
 
 app.post('/', jsonParser, function(request, response) {
