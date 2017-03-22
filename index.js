@@ -13,6 +13,7 @@ var groupId = '29852246';
 var appId = '0deae2004936905f42d8f34baf';
 
 function parse(body){
+	console.log("Avater URL: ",body.avatar_url);
 	return body.avatar_url;
 }
 
@@ -42,6 +43,7 @@ function upload(filename_,uri){
     		return console.error('upload failed:', err);
   		}
   		console.log('Upload successful!  Server responded with:', body);
+  		console.log('Upload successful!  Server responded with:', httpResponse);
 		
 	});
 }
