@@ -32,7 +32,7 @@ function send_msg(text){
 			}
 		]
 	};
-	request.post("https://api.groupme.com/v3/bots/post",formData:fd,
+	request.post({url:"https://api.groupme.com/v3/bots/post",formData:fd},
 		function(e,r,b){
 			if(e)
 				console.log("Error posting: ",e);
