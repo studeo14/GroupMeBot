@@ -38,14 +38,11 @@ function upload(filename_,uri){
   	};
 
 	var retVal = '';
-	request.post({url:uri,formData:formData}, function optionalCallback(err, httpResponse, body) {
-  		if (err) {
-    		return console.error('upload failed:', err);
-  		}
-  		console.log('Upload successful!  Server responded with:', body);
-  		console.log('Upload successful!  Server responded with:', httpResponse);
-		
-	});
+	request.post({url:uri,formData:formData})
+	.on('response', function(r){
+		console.log(response, response.statusCode);
+	})
+	;
 }
 
 app.post('/', jsonParser, function(request, response) {
