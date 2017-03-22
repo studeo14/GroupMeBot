@@ -33,8 +33,8 @@ app.post('/', jsonParser, function(request, response) {
 	//parse
 	var text = parse(request.body);
 	console.log("Got: ",text);
-	if(text[0][0]=='/')
-		if(!urls.hasOwnProperty(text[0])){
+	if(text[0][0]=='/'){
+		if(!urls.hasOwnProperty(text)){
 			console.log("Bad Command");
 			text = "Bad Command";
 			send_msg(text);
@@ -45,6 +45,7 @@ app.post('/', jsonParser, function(request, response) {
 			console.log(text);
 			send_msg(text);
 		}
+	}
 	response.end();
 });
 
