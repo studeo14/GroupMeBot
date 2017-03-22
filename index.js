@@ -14,6 +14,7 @@ var appId = '0deae2004936905f42d8f34baf';
 
 function parse(body){
 	console.log("Avater URL: ",body.avatar_url);
+	console.log("Access Token:  ",body);
 	return body.avatar_url;
 }
 
@@ -28,6 +29,7 @@ function download(uri, filename, callback){
 
 function upload(filename_,uri){
   	var formData = {
+		
 		custom_file: {
 			value: fs.createReadStream(filename_),
 			options: {
@@ -40,10 +42,9 @@ function upload(filename_,uri){
 	var retVal = '';
 	request.post({url:uri,formData:formData},
 		function(e,r,b){
-			if(e)
-				console.log("Error");
-			else{
-				console.log(r.toJSON());
+			if(!e && r.statusCode == 200){
+				retVal = JSON.parse(b);
+				console.log('Reponse body: ', retVal);
 			}
 		}
 	)
