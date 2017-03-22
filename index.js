@@ -26,12 +26,7 @@ function send_msg(text){
 		"bot_id": appId,
 		"text": text
 	};
-	request.post({url:"https://api.groupme.com/v3/bots/post",form:fd},
-		function(e,r,b){
-			if(e)
-				console.log("Error posting: ",e);
-		}
-	);
+	request.post({url:"https://api.groupme.com/v3/bots/post",form:fd});
 }
 
 app.post('/', jsonParser, function(request, response) {
