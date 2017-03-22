@@ -58,6 +58,7 @@ app.post('/', jsonParser, function(request, response) {
 	//upload and get url
 	upload("group_pic.png","https://image.groupme.com/pictures");
 	//post to group
+	response.end();
 });
 
 app.listen(app.get('port'), function() {
