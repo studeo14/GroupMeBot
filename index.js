@@ -43,7 +43,7 @@ function upload(filename_,uri){
 			if(e)
 				console.log("Error");
 			else{
-				console.log(r.toJSON);
+				console.log(r.toJSON());
 			}
 		}
 	)
