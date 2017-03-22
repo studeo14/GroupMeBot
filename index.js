@@ -34,14 +34,14 @@ app.post('/', jsonParser, function(request, response) {
 	var text = parse(request.body);
 	console.log("Got: ",text);
 	if(text[0][0]=='/'){
-		if(!urls.hasOwnProperty(text)){
+		if(!urls.hasOwnProperty(text[0])){
 			console.log("Bad Command");
 			text = "Bad Command";
 			send_msg(text);
 		}
 		else{
 			console.log("Good Command");
-			text = urls[text];
+			text = urls[text[0]];
 			console.log(text);
 			send_msg(text);
 		}
