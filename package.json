@@ -1,0 +1,29 @@
+{
+  "name": "King Bot",
+  "version": "8008.135",
+  "description": "Bot that distorts images.",
+  "engines": {
+    "node": "5.9.1"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "1.17.1",
+    "ejs": "2.4.1",
+    "express": "4.13.3",
+    "fs": "0.0.1-security",
+    "gm": "1.23.0",
+    "request": "2.81.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://studeo14@bitbucket.org/studeo14/king-bot.git"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ]
+}
