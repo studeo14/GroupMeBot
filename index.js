@@ -29,7 +29,7 @@ function download(uri, filename, callback){
 
 function upload(filename_,uri){
   	var formData = {
-		
+		"X-Access-Token": "9f4f5aa0f0f20134f3cc7b24b56edc21",
 		custom_file: {
 			value: fs.createReadStream(filename_),
 			options: {
