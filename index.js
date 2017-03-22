@@ -32,8 +32,7 @@ function send_msg(text,url){
 				"type":"image",
 				"url":url
 			}
-		]
-	};
+		];
 	request.post({url:"https://api.groupme.com/v3/bots/post",form:fd});
 }
 
