@@ -21,10 +21,18 @@ function parse(body){
 	return [body.text,body.name];
 }
 
-function send_msg(text){
+function send_msg(text,url){
 	var fd = {
 		"bot_id": appId,
 		"text": text
+	};
+	if(url)
+		fd["attachments"]=[
+			{
+				"type":"image",
+				"url":url
+			}
+		]
 	};
 	request.post({url:"https://api.groupme.com/v3/bots/post",form:fd});
 }
@@ -37,13 +45,13 @@ app.post('/', jsonParser, function(request, response) {
 		if(!urls.hasOwnProperty(text[0])){
 			console.log("Bad Command");
 			text = "Bad Command";
-			send_msg(text);
+			send_msg(text,urls['err']);
 		}
 		else{
 			console.log("Good Command");
 			text = urls[text[0]];
 			console.log(text);
-			send_msg(text);
+			send_msg('',text);
 		}
 	}
 	response.end();
