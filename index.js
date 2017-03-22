@@ -41,6 +41,7 @@ app.post('/', jsonParser, function(request, response) {
 		}
 		else{
 			console.log("Good Command");
+			console.log(urls);
 			text = urls[text];
 			send_msg(text);
 		}
