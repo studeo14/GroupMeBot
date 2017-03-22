@@ -9,7 +9,7 @@ app.set('port', (process.env.PORT || 5000));
 
 var jsonParser = bp.json();
 
-var groupId = '29332524';
+var groupId = '29852246';
 var appId = '0deae2004936905f42d8f34baf';
 
 function parse(body){
