@@ -14,6 +14,7 @@ var urls = {
 	"/steve":"https://i.groupme.com/384x293.png.df1367a456ca4def9613e440433c09d2",
 	"/maks":"https://i.groupme.com/720x715.png.333b24832aee4eb597b81a6925423bfa",
 	"/mike":"https://i.groupme.com/800x591.png.bdd605d278dc400da2bae52c1dbe51f8",
+	"/whatsgood":"https://youtu.be/CNj8It2S8Cs",
 	"err":"http://s.quickmeme.com/img/a8/a8022006b463b5ed9be5a62f1bdbac43b4f3dbd5c6b3bb44707fe5f5e26635b0.jpg"
 };
 
