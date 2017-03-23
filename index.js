@@ -40,7 +40,7 @@ app.post('/', jsonParser, function(request, response) {
 	if(text[0][0]=='/'){
 		if(!urls.hasOwnProperty(text[0])){
 			console.log("Bad Command");
-			text = "Bad Command";
+			text = "Bad Command. "+urls["/help"];
 			send_msg(urls['err']);
 		}
 		else{
