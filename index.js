@@ -41,7 +41,7 @@ app.post('/', jsonParser, function(request, response) {
 		if(!urls.hasOwnProperty(text[0])){
 			console.log("Bad Command");
 			text = "Bad Command. "+urls["/help"];
-			send_msg(urls['err']);
+			send_msg(text);
 		}
 		else{
 			console.log("Good Command");
