@@ -17,7 +17,8 @@ var urls = {
 	"/whatsgood":"https://youtu.be/CNj8It2S8Cs",
 	"/what":"https://i.ytimg.com/vi/MHwUQ9TQgbk/maxresdefault.jpg",
 	"/norf":"http://boi-1da.net/wp-content/uploads/2015/03/vince-620x400.jpg",
-	"/help":"Commands: /steve, /maks, /mike, /whatsgood, /what, /norf, /help",
+	"/actually":"https://i.groupme.com/60x71.png.4f903cad9047473e83c59ac0149c7e09",
+	"/help":"Commands: /steve, /maks, /mike, /whatsgood, /what, /norf, /actually, /help",
 	"err":"http://s.quickmeme.com/img/a8/a8022006b463b5ed9be5a62f1bdbac43b4f3dbd5c6b3bb44707fe5f5e26635b0.jpg"
 };
 
