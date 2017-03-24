@@ -18,7 +18,8 @@ var urls = {
 	"/what":"https://i.ytimg.com/vi/MHwUQ9TQgbk/maxresdefault.jpg",
 	"/norf":"http://boi-1da.net/wp-content/uploads/2015/03/vince-620x400.jpg",
 	"/actually":"https://i.groupme.com/579x581.png.948c974caa18403abe96ec484d2a0336",
-	"/help":"Commands: /steve, /maks, /mike, /whatsgood, /what, /norf, /actually, /help",
+	"/knyueughckqaw":"https://www.youtube.com/watch?v=q1UHNQFzPPE",
+	"/help":"Commands: /steve, /maks, /mike, /whatsgood, /what, /norf, /actually, /knyueughckqaw, /help",
 	"err":"http://s.quickmeme.com/img/a8/a8022006b463b5ed9be5a62f1bdbac43b4f3dbd5c6b3bb44707fe5f5e26635b0.jpg"
 };
 
@@ -39,6 +40,7 @@ app.post('/', jsonParser, function(request, response) {
 	var text = parse(request.body);
 	console.log("Got: ",text);
 	if(text[0][0]=='/'){
+		text[0] = text[0].toLowerCase();
 		if(!urls.hasOwnProperty(text[0])){
 			console.log("Bad Command");
 			text = "Bad Command. "+urls["/help"];
